@@ -1,0 +1,87 @@
+# Telegram API Credentials
+# Get from: https://my.telegram.org
+API_ID=your_api_id_here
+API_HASH=your_api_hash_here
+
+# Telegram Bot Token
+# Get from: @BotFather
+BOT_TOKEN=your_bot_token_here
+
+# Log Channel ID (for logging bot activities)
+# Create a private channel, add your bot as admin, and get the channel ID
+LOG_CHANNEL_ID=-100xxxxxxxxxx
+
+# Admin User ID (your Telegram user ID)
+# Get from: @userinfobot
+ADMIN_ID=your_telegram_user_id
+
+# Telegram Userbot Phone Number (optional, for large file handling)
+# Format: +972501234567
+PHONE_NUMBER=your_phone_number_here
+
+# ========== WhatsApp Configuration ==========
+# 
+# ⚠️ חשוב: הקוד הנוכחי משתמש רק ב-4 משתנים הראשונים
+# המשתנים האחרים (HEADLESS, USER_DATA_DIR, TIMEOUTs) לא בשימוש כרגע
+# אבל נשארו כאן למקרה שתרצה להשתמש בהם בעתיד
+#
+
+# ✅ נדרש: האם להפעיל שליחה ל-WhatsApp
+# true = מופעל, false = כבוי
+# דוגמה: WHATSAPP_ENABLED=true
+WHATSAPP_ENABLED=false
+
+# ✅ נדרש: שם הצ'אט/קבוצה ב-WhatsApp לשלוח אליו
+# ⚠️ חשוב: חייב להתאים בדיוק לשם כפי שהוא מופיע ב-WhatsApp!
+# דוגמה: WHATSAPP_CHAT_NAME=ניהול בוט
+# דוגמה: WHATSAPP_CHAT_NAME=קבוצת עבודה
+WHATSAPP_CHAT_NAME=
+
+# אופציונלי: כתובת שרת Node.js של WhatsApp
+# ברירת מחדל: http://localhost:3000
+# דוגמה: WHATSAPP_SERVICE_URL=http://localhost:3000
+WHATSAPP_SERVICE_URL=http://localhost:3000
+
+# אופציונלי: מצב Dry Run - לא ישלח בפועל (רק סימולציה)
+# true = סימולציה בלבד (לא ישלח), false = שליחה אמיתית
+# שימושי לטסטים ללא שליחה אמיתית
+# דוגמה: WHATSAPP_DRY_RUN=false
+WHATSAPP_DRY_RUN=false
+
+# ========== משתנים שלא בשימוש כרגע (לעתיד) ==========
+# 
+# ⚠️ הערה: המשתנים הבאים מוגדרים ב-template אבל לא בשימוש בקוד הנוכחי
+# הקוד ב-server.js קובע את הערכים האלה ישירות
+# אבל נשארו כאן למקרה שתרצה להשתמש בהם בעתיד
+#
+
+# Run browser in headless mode (true/false)
+# Set to false to see the browser window (useful for debugging)
+# ⚠️ לא בשימוש - הקוד קובע headless: true ישירות
+WHATSAPP_HEADLESS=false
+
+# User data directory for Chrome (persists login session)
+# Leave empty to use default: whatsapp_session/
+# ⚠️ לא בשימוש - הקוד משתמש ב-./whatsapp_auth
+WHATSAPP_USER_DATA_DIR=
+
+# Timeouts (in seconds)
+# ⚠️ לא בשימוש - הקוד משתמש בערכים קבועים:
+# TIMEOUT_MEDIA_SEC: 120, TIMEOUT_DOC_SEC: 300
+WHATSAPP_PAGE_LOAD_TIMEOUT=30
+WHATSAPP_ELEMENT_TIMEOUT=10
+WHATSAPP_UPLOAD_TIMEOUT=60
+
+# ========== Telegram Channels Configuration ==========
+# Enable publishing to Telegram channels (true/false)
+PUBLISH_TO_CHANNELS=false
+
+# Channel for audio content (image + MP3)
+# Format: @channel_username or -100xxxxxxxxxx (channel ID)
+# Get channel ID from @userinfobot (forward a message from the channel)
+AUDIO_CONTENT_CHANNEL_ID=
+
+# Channel for video content
+# Format: @channel_username or -100xxxxxxxxxx (channel ID)
+VIDEO_CONTENT_CHANNEL_ID=
+

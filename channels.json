@@ -1,0 +1,75 @@
+{
+  "repository": {
+    "telegram": [
+      "-1001456991762",
+      "hasidim_music",
+      "Hasidim_music_videos",
+      "-1002332752977"
+    ],
+    "whatsapp": [
+      "ניהול בוט",
+      "הסטטוס שלי",
+      "חסידי〽️יוזיק",
+      "חסידי〽️יוזיק 2",
+      "אח〽️סון בוואטסאפ 1️⃣"
+    ]
+  },
+  "template_links": {
+    "telegram_image": {
+      "telegram": [
+        "-1001456991762",
+        "-1002332752977"
+      ],
+      "whatsapp": []
+    },
+    "telegram_audio": {
+      "telegram": [
+        "-1001456991762",
+        "-1002332752977"
+      ],
+      "whatsapp": []
+    },
+    "telegram_video": {
+      "telegram": [
+        "-1001456991762",
+        "-1002332752977"
+      ],
+      "whatsapp": []
+    },
+    "whatsapp_image": {
+      "telegram": [],
+      "whatsapp": [
+        "ניהול בוט",
+        "אח〽️סון בוואטסאפ 1️⃣"
+      ]
+    },
+    "whatsapp_audio": {
+      "telegram": [],
+      "whatsapp": [
+        "ניהול בוט",
+        "אח〽️סון בוואטסאפ 1️⃣"
+      ]
+    },
+    "whatsapp_video": {
+      "telegram": [],
+      "whatsapp": [
+        "ניהול בוט",
+        "אח〽️סון בוואטסאפ 1️⃣"
+      ]
+    },
+    "whatsapp_instagram": {
+      "telegram": [],
+      "whatsapp": [
+        "ניהול בוט",
+        "הסטטוס שלי"
+      ]
+    },
+    "telegram_instagram": {
+      "telegram": [
+        "-1002332752977",
+        "-1001456991762"
+      ],
+      "whatsapp": []
+    }
+  }
+}

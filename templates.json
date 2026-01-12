@@ -1,0 +1,11 @@
+{
+  "telegram_image": "━━━━━━━━━━━━━━\n💬 **שם השיר:** {song_name}\n🎙 **אמן:** {artist_name}\n🎼 **לחן:** {composer}\n🖥 **עיבוד:** {arranger}\n🎛 **מיקס:** {mixer}\n🎥 **לצפיה ביוטיוב** 👇\n{youtube_url}\n━━━━━━━━━━━━━━\n\nקרדיט: [חסידי〽️יוזיק](https://t.me/Hasidim_music)",
+  "telegram_audio": "~ חסידי〽️יוזיק\n👉@Hasidim_music 👈",
+  "telegram_video": "[{artist_name} - {song_name}](youtube_url)\n🎥 איכות: 1080\n\n~ חסידי〽️יוזיק\n👉 @Hasidim_music_videos 👈",
+  "whatsapp_image": "━━━━━━━━━━━━━━\n💬 *שם השיר:* {song_name}\n🎙 *אמן:* {artist_name}\n🎼 *לחן:* {composer}\n🖥 *עיבוד:* {arranger}\n🎛 *מיקס:* {mixer}\n🎥 *לצפיה ביוטיוב 👇*\n{youtube_url}\n━━━━━━━━━━━━━━\n\n> *חסידי〽️יוזיק • להצטרפות:*\nhttps://wa.me/message/Z23YZZO5Q66PC1",
+  "whatsapp_audio": "> חסידי〽️יוזיק • שתפו 📲\nhttps://chat.whatsapp.com/Ijco9Y19CkE8G0TiBtY1fu",
+  "whatsapp_video": "*{artist_name} - {song_name}*\nהקליפ המלא | צפו 🎥\n\n> *חסידי〽️יוזיק • שתפו 📲*\nhttps://chat.whatsapp.com/Ijco9Y19CkE8G0TiBtY1fu",
+  "whatsapp_instagram": "{text}\n\n> חסידי〽️יוזיק • שתפו 📲\nhttps://chat.whatsapp.com/Ijco9Y19CkE8G0TiBtY1fu",
+  "whatsapp_status": "https://wa.me/message/Z23YZZO5Q66PC1",
+  "telegram_instagram": "{text}\n\n~ חסידי〽️יוזיק\n👉 @Hasidim_music 👈"
+}

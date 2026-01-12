@@ -1,0 +1,31 @@
+# Telegram Bot & Userbot
+pyrogram>=2.0.106
+tgcrypto>=1.2.5
+
+# Environment Variables
+python-dotenv>=1.0.0
+
+# YouTube Downloader
+yt-dlp>=2023.12.30
+
+# Audio Metadata
+mutagen>=1.47.0
+
+# Image Processing
+Pillow>=10.0.0
+
+# HTTP Requests (for WhatsApp Service)
+requests>=2.31.0
+
+
+# FFmpeg Python Wrapper
+ffmpeg-python>=0.2.0
+
+# Additional utilities
+aiofiles>=23.2.1
+aiohttp>=3.9.1
+psutil>=5.9.0  # System and process utilities (for memory checking)
+
+# Instagram Downloader
+instagrapi>=2.0.0
+

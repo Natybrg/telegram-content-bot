@@ -1,0 +1,87 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Pyrogram sessions
+*.session
+*.session-journal
+
+# Session and temporary data
+data/*
+!data/.gitkeep
+whatsapp_session/
+whatsapp_service/whatsapp_auth/
+
+# Logs
+*.log
+logs/
+
+# Downloads folder
+downloads/*
+!downloads/.gitkeep
+
+# Cookies and sensitive data
+cookies.txt
+cookies_backup_*.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# FFmpeg temporary files
+*.part
+*.ytdl
+*.temp
+ffmpeg2pass-*.log
+ffmpeg2pass-*.log.mbtree
+
+# Test outputs
+test_output/
+*.test.mp4
+*.test.mp3
+*.test.jpg
+tests/__pycache__/
+tests/*.pyc
+
+# Documentation (keep structure, ignore generated files)
+docs/*.html
+docs/*.pdf
+docs/_build/
+
+# Node.js (WhatsApp service)
+whatsapp_service/node_modules/
+whatsapp_service/package-lock.json
+package-lock.json
+package.json
+
