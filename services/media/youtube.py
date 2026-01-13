@@ -11,7 +11,7 @@ import time
 from pathlib import Path
 from typing import Optional, Tuple
 import yt_dlp
-import config
+from core import ROOT_DIR
 from .ffmpeg_utils import (
     get_video_codec,
     get_audio_codec,
@@ -332,7 +332,7 @@ async def _download_single_quality(
         logger.info(f"📥 מוריד גרסה {quality_name}...")
         
         # וידוא שתיקיית downloads קיימת
-        downloads_dir = Path(config.DOWNLOADS_PATH)
+        downloads_dir = Path(ROOT_DIR) / "downloads"
         downloads_dir.mkdir(exist_ok=True)
         
         # בדיקת קיום cookies
@@ -515,7 +515,7 @@ async def download_youtube_video(
         logger.info(f"🎬 איכות: {quality}")
         
         # וידוא שתיקיית downloads קיימת
-        downloads_dir = Path(config.DOWNLOADS_PATH)
+        downloads_dir = Path(ROOT_DIR) / "downloads"
         downloads_dir.mkdir(exist_ok=True)
         
         # בדיקת קיום cookies

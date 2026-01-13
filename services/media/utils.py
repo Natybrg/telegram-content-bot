@@ -176,21 +176,53 @@ def get_next_update_filename(file_path: str) -> str:
 
 async def cleanup_files(*file_paths: str) -> int:
     """
-    מוחק קבצים זמניים
+    מוחק קבצים זמניים עם ניסיונות חוזרים במקרה של שגיאות
     
     Returns:
         מספר קבצים שנמחקו בהצלחה
     """
     deleted_count = 0
+    import time
     
     for file_path in file_paths:
-        try:
-            if os.path.exists(file_path):
-                os.remove(file_path)
-                logger.info(f"🗑️ נמחק: {file_path}")
-                deleted_count += 1
-        except Exception as e:
-            logger.error(f"❌ שגיאה במחיקת {file_path}: {e}")
+        if not file_path:
+            continue
+            
+        max_retries = 3
+        retry_delay = 1  # שניות
+        
+        for attempt in range(max_retries):
+            try:
+                if os.path.exists(file_path):
+                    # ניסיון למחוק את הקובץ
+                    os.remove(file_path)
+                    logger.info(f"🗑️ נמחק: {file_path}")
+                    deleted_count += 1
+                    break  # הצליח - יוצא מהלולאה
+                else:
+                    # הקובץ כבר לא קיים - לא נחשב לשגיאה
+                    logger.debug(f"ℹ️ קובץ כבר לא קיים: {file_path}")
+                    break
+            except PermissionError as e:
+                # הקובץ עדיין בשימוש
+                if attempt < max_retries - 1:
+                    logger.warning(f"⚠️ קובץ בשימוש, מנסה שוב בעוד {retry_delay} שניות (ניסיון {attempt + 1}/{max_retries}): {file_path}")
+                    await asyncio.sleep(retry_delay)
+                    retry_delay *= 2  # הגדלת זמן ההמתנה
+                else:
+                    logger.error(f"❌ שגיאה במחיקת {file_path} אחרי {max_retries} ניסיונות: {e}")
+            except OSError as e:
+                # שגיאות אחרות (כמו WinError 32)
+                if attempt < max_retries - 1:
+                    logger.warning(f"⚠️ שגיאה במחיקה, מנסה שוב בעוד {retry_delay} שניות (ניסיון {attempt + 1}/{max_retries}): {file_path} - {e}")
+                    await asyncio.sleep(retry_delay)
+                    retry_delay *= 2
+                else:
+                    logger.error(f"❌ שגיאה במחיקת {file_path} אחרי {max_retries} ניסיונות: {e}")
+            except Exception as e:
+                # שגיאות אחרות
+                logger.error(f"❌ שגיאה במחיקת {file_path}: {e}")
+                break  # לא מנסים שוב על שגיאות אחרות
     
     return deleted_count
 

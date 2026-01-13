@@ -1,0 +1,79 @@
+{
+  "repository": {
+    "telegram": [
+      {
+        "peer_id_b64": null,
+        "title": "-1001456991762",
+        "legacy_id": "-1001456991762",
+        "is_legacy": true,
+        "migration_error": "Telegram says: [400 PEER_ID_INVALID] - The peer id being used is invalid or not known yet. Make sure you meet the peer before interacting with it "
+      },
+      {
+        "peer_id_b64": null,
+        "title": "hasidim_music",
+        "legacy_id": "hasidim_music",
+        "is_legacy": true,
+        "migration_error": "'Chat' object has no attribute 'peer_id'"
+      },
+      {
+        "peer_id_b64": null,
+        "title": "Hasidim_music_videos",
+        "legacy_id": "Hasidim_music_videos",
+        "is_legacy": true,
+        "migration_error": "'Chat' object has no attribute 'peer_id'"
+      }
+    ],
+    "whatsapp": [
+      "ניהול בוט",
+      "הסטטוס שלי",
+      "חסידי〽️יוזיק",
+      "חסידי〽️יוזיק 2",
+      "אח〽️סון בוואטסאפ 1️⃣"
+    ]
+  },
+  "template_links": {
+    "telegram_image": {
+      "telegram": [
+        "-1001456991762"
+      ],
+      "whatsapp": []
+    },
+    "telegram_audio": {
+      "telegram": [
+        "-1001456991762"
+      ],
+      "whatsapp": []
+    },
+    "telegram_video": {
+      "telegram": [
+        "-1001456991762"
+      ],
+      "whatsapp": []
+    },
+    "whatsapp_image": {
+      "telegram": [],
+      "whatsapp": []
+    },
+    "whatsapp_audio": {
+      "telegram": [],
+      "whatsapp": []
+    },
+    "whatsapp_video": {
+      "telegram": [],
+      "whatsapp": []
+    },
+    "whatsapp_instagram": {
+      "telegram": [],
+      "whatsapp": [
+        "ניהול בוט",
+        "הסטטוס שלי"
+      ]
+    },
+    "telegram_instagram": {
+      "telegram": [
+        "-1001456991762"
+      ],
+      "whatsapp": []
+    }
+  }
+}

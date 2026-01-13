@@ -3,11 +3,12 @@ Main Entry Point
 Initializes and runs the Telegram Bot, Userbot, and services
 """
 import asyncio
+import hashlib
 import logging
+from pathlib import Path
 from pyrogram import Client, idle
-import config
 from services.user_states import state_manager
-from services.context import AppContext
+from core.context import AppContext
 
 # Configure logging
 logging.basicConfig(
@@ -51,7 +52,8 @@ async def main():
     
     try:
         # Validate configuration
-        config.validate_config()
+        from core import validate_config
+        validate_config()
         logger.info("✅ Configuration validated successfully")
         
         # Check FFmpeg availability
@@ -62,28 +64,33 @@ async def main():
         
         # Log configuration info
         logger.info("Current Configuration:")
-        for key, value in config.get_config_info().items():
+        from core import get_config_info
+        for key, value in get_config_info().items():
             logger.info(f"  {key}: {value}")
         
         logger.info("🚀 Starting Bot System...")
         
         # Initialize Bot Client
+        from core import (
+            BOT_SESSION_NAME, API_ID, API_HASH, BOT_TOKEN,
+            USERBOT_SESSION_NAME, PHONE_NUMBER, ROOT_DIR
+        )
         bot = Client(
-            name=config.BOT_SESSION_NAME,
-            api_id=config.API_ID,
-            api_hash=config.API_HASH,
-            bot_token=config.BOT_TOKEN,
+            name=BOT_SESSION_NAME,
+            api_id=API_ID,
+            api_hash=API_HASH,
+            bot_token=BOT_TOKEN,
             plugins=dict(root="plugins"),
-            workdir=str(config.ROOT_DIR)
+            workdir=str(ROOT_DIR)
         )
         
         # Initialize Userbot Client
         userbot = Client(
-            name=config.USERBOT_SESSION_NAME,
-            api_id=config.API_ID,
-            api_hash=config.API_HASH,
-            phone_number=config.PHONE_NUMBER,
-            workdir=str(config.ROOT_DIR)
+            name=USERBOT_SESSION_NAME,
+            api_id=API_ID,
+            api_hash=API_HASH,
+            phone_number=PHONE_NUMBER,
+            workdir=str(ROOT_DIR)
         )
         
         logger.info("📱 Starting Bot Client...")
@@ -107,6 +114,42 @@ async def main():
         # Get userbot info
         userbot_info = await userbot.get_me()
         logger.info(f"👤 Userbot: @{userbot_info.username if userbot_info.username else userbot_info.first_name}")
+        
+        # Log userbot account details
+        logger.info("=" * 60)
+        logger.info("📋 Userbot Account Information:")
+        logger.info(f"   • ID: {userbot_info.id}")
+        logger.info(f"   • Username: @{userbot_info.username}" if userbot_info.username else f"   • Username: (none)")
+        logger.info(f"   • Phone: {userbot_info.phone_number}" if userbot_info.phone_number else f"   • Phone: (hidden)")
+        logger.info(f"   • First Name: {userbot_info.first_name}")
+        if userbot_info.last_name:
+            logger.info(f"   • Last Name: {userbot_info.last_name}")
+        
+        # Log session information
+        logger.info("📁 Session Information:")
+        session_file_path = Path(ROOT_DIR) / f"{USERBOT_SESSION_NAME}.session"
+        if session_file_path.exists():
+            session_file_size = session_file_path.stat().st_size
+            logger.info(f"   • Session File: {session_file_path.name}")
+            logger.info(f"   • Session Path: {session_file_path}")
+            logger.info(f"   • Session Size: {session_file_size:,} bytes")
+            
+            # Calculate hash of session file (first 1KB for quick hash)
+            try:
+                with open(session_file_path, 'rb') as f:
+                    first_kb = f.read(1024)
+                    session_hash = hashlib.md5(first_kb).hexdigest()[:12]
+                    logger.info(f"   • Session Hash (first 1KB): {session_hash}")
+            except Exception as e:
+                logger.warning(f"   • Could not calculate session hash: {e}")
+        else:
+            # Check if using session string instead
+            logger.info(f"   • Session File: Not found (using session string or in-memory)")
+            # Try to get session string from client if available
+            if hasattr(userbot, 'storage') and hasattr(userbot.storage, 'dc_id'):
+                logger.info(f"   • Session Type: In-memory/Pyrogram storage")
+        
+        logger.info("=" * 60)
         
         logger.info("✅ Both clients are running!")
         logger.info("⏳ Press Ctrl+C to stop...")

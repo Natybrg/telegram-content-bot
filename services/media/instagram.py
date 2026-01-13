@@ -8,12 +8,12 @@ from pathlib import Path
 from typing import Optional, Tuple
 from instagrapi import Client
 from instagrapi.exceptions import LoginRequired, PleaseWaitFewMinutes, ChallengeRequired
-import config
+from core import ROOT_DIR, DOWNLOADS_PATH
 
 logger = logging.getLogger(__name__)
 
 # נתיב לשמירת סשן
-SESSION_FILE = config.ROOT_DIR / "instagram_session.json"
+SESSION_FILE = ROOT_DIR / "instagram_session.json"
 
 
 class InstagramDownloader:
@@ -113,7 +113,7 @@ class InstagramDownloader:
             Exception: אם ההורדה נכשלה
         """
         if not download_path:
-            download_path = config.DOWNLOADS_PATH
+            download_path = DOWNLOADS_PATH
         
         download_path = Path(download_path)
         download_path.mkdir(parents=True, exist_ok=True)
@@ -176,7 +176,7 @@ class InstagramDownloader:
             Exception: אם ההורדה נכשלה
         """
         if not download_path:
-            download_path = config.DOWNLOADS_PATH
+            download_path = DOWNLOADS_PATH
         
         download_path = Path(download_path)
         download_path.mkdir(parents=True, exist_ok=True)

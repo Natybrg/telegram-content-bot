@@ -1,75 +1,74 @@
 {
   "repository": {
     "telegram": [
-      "-1001456991762",
-      "hasidim_music",
-      "Hasidim_music_videos",
-      "-1002332752977"
+      {
+        "peer_id_b64": "AAAAAFbX7hJ+33llMfOv+w==",
+        "title": "חסידי𝓜יוזיק • ניהול",
+        "legacy_id": "-1001456991762"
+      },
+      {
+        "peer_id_b64": "AAAAALVfLWbynw6eJqC5wg==",
+        "title": "ערוץ קליפים 1080",
+        "legacy_id": "-1003042913638"
+      }
     ],
     "whatsapp": [
-      "ניהול בוט",
-      "הסטטוס שלי",
-      "חסידי〽️יוזיק",
-      "חסידי〽️יוזיק 2",
-      "אח〽️סון בוואטסאפ 1️⃣"
+      {
+        "peer_id_b64": null,
+        "title": "ניהול בוט",
+        "legacy_id": "ניהול בוט",
+        "is_legacy": true
+      }
     ]
   },
   "template_links": {
-    "telegram_image": {
-      "telegram": [
-        "-1001456991762",
-        "-1002332752977"
-      ],
-      "whatsapp": []
-    },
-    "telegram_audio": {
-      "telegram": [
-        "-1001456991762",
-        "-1002332752977"
-      ],
-      "whatsapp": []
-    },
-    "telegram_video": {
-      "telegram": [
-        "-1001456991762",
-        "-1002332752977"
-      ],
-      "whatsapp": []
-    },
     "whatsapp_image": {
       "telegram": [],
       "whatsapp": [
-        "ניהול בוט",
-        "אח〽️סון בוואטסאפ 1️⃣"
+        "ניהול בוט"
       ]
     },
     "whatsapp_audio": {
       "telegram": [],
       "whatsapp": [
-        "ניהול בוט",
-        "אח〽️סון בוואטסאפ 1️⃣"
+        "ניהול בוט"
       ]
     },
     "whatsapp_video": {
       "telegram": [],
       "whatsapp": [
-        "ניהול בוט",
-        "אח〽️סון בוואטסאפ 1️⃣"
+        "ניהול בוט"
       ]
+    },
+    "telegram_audio": {
+      "telegram": [
+        "AAAAAFbX7hJ+33llMfOv+w=="
+      ],
+      "whatsapp": []
+    },
+    "telegram_video": {
+      "telegram": [
+        "AAAAALVfLWbynw6eJqC5wg=="
+      ],
+      "whatsapp": []
+    },
+    "telegram_image": {
+      "telegram": [
+        "AAAAAFbX7hJ+33llMfOv+w=="
+      ],
+      "whatsapp": []
+    },
+    "telegram_instagram": {
+      "telegram": [
+        "AAAAALVfLWbynw6eJqC5wg=="
+      ],
+      "whatsapp": []
     },
     "whatsapp_instagram": {
       "telegram": [],
       "whatsapp": [
-        "ניהול בוט",
-        "הסטטוס שלי"
+        "ניהול בוט"
       ]
-    },
-    "telegram_instagram": {
-      "telegram": [
-        "-1002332752977",
-        "-1001456991762"
-      ],
-      "whatsapp": []
     }
   }
 }

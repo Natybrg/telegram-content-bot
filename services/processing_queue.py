@@ -6,16 +6,10 @@ import logging
 from typing import Optional, Callable, Dict, Tuple
 from datetime import datetime
 
-logger = logging.getLogger(__name__)
+# Import QueueItem from models
+from models import QueueItem
 
-class QueueItem:
-    """פריט בתור"""
-    def __init__(self, user_id: int, callback: Callable, message, added_at: datetime, status_msg=None):
-        self.user_id = user_id
-        self.callback = callback
-        self.message = message
-        self.added_at = added_at
-        self.status_msg = status_msg
+logger = logging.getLogger(__name__)
 
 class ProcessingQueue:
     """תור FIFO משופר לעיבוד משתמשים"""

@@ -5,7 +5,7 @@ Queue Management Commands
 import logging
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from config import is_authorized_user
+from core import is_authorized_user
 
 from services.processing_queue import processing_queue
 

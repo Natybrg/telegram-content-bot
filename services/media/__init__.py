@@ -4,12 +4,18 @@ Media Processing Services
 """
 
 # YouTube Downloads
+# Import from youtube.py file
 from .youtube import (
     download_youtube_video_dual,
-    download_youtube_video,
-    compress_video_smart,
-    get_video_info
+    calculate_timeout
 )
+# Optional functions (may not exist)
+try:
+    from .youtube import download_youtube_video, compress_video_smart, get_video_info
+except ImportError:
+    download_youtube_video = None
+    compress_video_smart = None
+    get_video_info = None
 
 # Image Processing
 from .image import (

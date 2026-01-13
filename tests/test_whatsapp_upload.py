@@ -20,7 +20,10 @@ from typing import Optional, List, Tuple
 # הוספת הנתיב של הפרויקט (תיקיית השורש)
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-import config
+from core import (
+    WHATSAPP_ENABLED, WHATSAPP_CHAT_NAME, WHATSAPP_DRY_RUN,
+    WHATSAPP_SERVICE_URL, DOWNLOADS_PATH
+)
 from services.whatsapp.delivery import WhatsAppDelivery
 
 # ============================================
@@ -300,20 +303,20 @@ def test_whatsapp_upload(
     # בדיקת הגדרות
     log_step(1, 5, "בדיקת הגדרות")
     
-    if not config.WHATSAPP_ENABLED:
+    if not WHATSAPP_ENABLED:
         log_error("WhatsApp לא מופעל ב-config")
         return False
     
-    if not config.WHATSAPP_CHAT_NAME:
+    if not WHATSAPP_CHAT_NAME:
         log_error("לא הוגדר שם צ'אט ב-config")
         return False
     
     log_success(f"WhatsApp מופעל")
-    log_success(f"שם צ'אט: {config.WHATSAPP_CHAT_NAME}")
-    log_success(f"Service URL: {config.WHATSAPP_SERVICE_URL}")
+    log_success(f"שם צ'אט: {WHATSAPP_CHAT_NAME}")
+    log_success(f"Service URL: {WHATSAPP_SERVICE_URL}")
     
     # קביעת dry_run
-    use_dry_run = dry_run if dry_run is not None else config.WHATSAPP_DRY_RUN
+        use_dry_run = dry_run if dry_run is not None else WHATSAPP_DRY_RUN
     log_success(f"Dry Run: {use_dry_run}")
     
     if media_only:
@@ -326,7 +329,7 @@ def test_whatsapp_upload(
         file_path = find_video_file(prefer_large=prefer_large)
         if not file_path:
             log_error("לא נמצא קובץ לטסט")
-            log_info("הוסף קבצי וידאו לתיקייה: " + config.DOWNLOADS_PATH)
+            log_info("הוסף קבצי וידאו לתיקייה: " + str(DOWNLOADS_PATH))
             return False
     
     # בדיקת תקינות (עם בדיקת codec במצב media_only)
@@ -383,7 +386,7 @@ def test_whatsapp_upload(
     try:
         result = whatsapp.send_file(
             file_path=file_path,
-            chat_name=config.WHATSAPP_CHAT_NAME,
+            chat_name=WHATSAPP_CHAT_NAME,
             caption=f"🧪 טסט העלאה | {file_info['file_size_mb']:.2f}MB | {datetime.now().strftime('%H:%M:%S')}",
             file_type='video' if file_info['is_video'] else 'document',
             telegram_user_id=None,
@@ -493,7 +496,7 @@ def test_whatsapp_upload(
 
 def list_video_files():
     """רשימת כל קבצי הוידאו"""
-    downloads_dir = Path(config.DOWNLOADS_PATH)
+    downloads_dir = Path(DOWNLOADS_PATH)
     
     if not downloads_dir.exists():
         return []
@@ -567,7 +570,7 @@ def main():
         
         if not video_files:
             log_error("לא נמצאו קבצי וידאו")
-            log_info(f"תיקייה: {config.DOWNLOADS_PATH}")
+            log_info(f"תיקייה: {DOWNLOADS_PATH}")
             return 0
         
         valid_files = []
